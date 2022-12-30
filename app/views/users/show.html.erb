@@ -1,0 +1,46 @@
+<style>
+    table, th, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    td, th{
+        font-size: 30px;
+    }
+  </style>
+  
+      <table>
+        <thead>
+            <tr>
+                <th style="width:5%">First Name</th>
+                <th style="width:5%">Last Name</th>
+                <th style="width:5%">Email</th>
+                <th style="width:5%">Address 1</th>
+                <th style="width:5%">Address 2</th>
+                <th style="width:5%">City</th>
+                <th style="width:5%">State</th>
+                <th style="width:5%">Country</th>
+                <th style="width:5%">Pincode</th>
+                <th style="width:5%">Phone number</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <td><%= @user.name %></td>
+                <td><%= @user.lname %></td>
+                <td><%= @user.email %></td>
+                <td><%= @user.address_1 %></td>
+                <td><%= @user.address_2 %></td>
+                <td><%= @user.city %></td>
+                <td><%= @user.state %></td>
+                <td><%= @user.country %></td>
+                <td><%= @user.pincode %></td>
+                <td><%= @user.phone %></td>
+            </tr>
+            
+  </tbody>
+</table>
+
+<%= link_to "Show all Users", users_path%>
+<%= link_to "Edit", edit_user_path%>
+<%= link_to "Delete", user_path(@user), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>

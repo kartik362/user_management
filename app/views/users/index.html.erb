@@ -1,0 +1,49 @@
+
+<style>
+    table, th, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    td, th{
+        font-size: 30px;
+    }
+  </style>
+  
+      <table>
+        <thead>
+            <tr>
+                <th style="width:5%">First Name</th>
+                <th style="width:5%">Last Name</th>
+                <th style="width:5%">Email</th>
+                <th style="width:5%">Address 1</th>
+                <th style="width:5%">Address 2</th>
+                <th style="width:5%">City</th>
+                <th style="width:5%">State</th>
+                <th style="width:5%">Country</th>
+                <th style="width:5%">Pincode</th>
+                <th style="width:5%">Phone number</th>
+                <th colspan="3", style="width:5%">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%@users.each do |i|%>
+            <tr>
+                <td><%= i.name %></td>
+                <td><%= i.lname %></td>
+                <td><%= i.email %></td>
+                <td><%= i.address_1 %></td>
+                <td><%= i.address_2 %></td>
+                <td><%= i.city %></td>
+                <td><%= i.state %></td>
+                <td><%= i.country %></td>
+                <td><%= i.pincode %></td>
+                <td><%= i.phone %></td>
+                <td><%= link_to "Edit", edit_user_path(i) %></td>
+                <td><%= link_to "View", user_path(i) %></td>
+                <td><%= link_to "Delete", user_path(i), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"  } %></td>
+            </tr>
+            <%end%>
+            
+  </tbody>
+</table>
+<%= link_to "Create new user", new_user_path%>
